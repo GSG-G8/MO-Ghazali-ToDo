@@ -1,0 +1,23 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mogh": "tape './js/test.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G8/MO-Ghazali-ToDo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G8/MO-Ghazali-ToDo/issues"
+  },
+  "homepage": "https://github.com/GSG-G8/MO-Ghazali-ToDo#readme",
+  "devDependencies": {
+    "tape": "^4.13.0"
+  }
+}
