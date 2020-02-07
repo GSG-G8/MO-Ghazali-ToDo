@@ -20,3 +20,14 @@ test('add todo function', function(t) {
   t.end();
 });
 
+test('delete todo function', function(t) {
+  const beforArray = [{"id":"1","desc":"test1"},{"id":"2","desc":"test2"}, {"id":"3","desc":"test3"}];
+  const runFun = logic.todoFunctions.deleteTodo(beforArray);
+  const beforArrayLength = beforArray.length; 
+  const expectedLength = runFun.length;
+  t.equal(beforArrayLength, expectedLength);
+  t.equal(typeof(beforArray),typeof(runFun));
+  t.end();
+});
+
+
