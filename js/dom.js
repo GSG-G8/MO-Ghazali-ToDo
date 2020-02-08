@@ -14,24 +14,26 @@
     const todoNode = document.createElement('li');
     const spanDescription = document.createElement('span');
     const deleteButtonNode = document.createElement('button');
+
     const markTodo = document.createElement('button');
 
     spanDescription.textContent = todo.description;
+    spanDescription.classList.add('span-style');
     todoNode.appendChild(spanDescription);
-    deleteButtonNode.textContent = 'Delete';
+    deleteButtonNode.classList.add('fa','fa-times','delete-button');
     deleteButtonNode.addEventListener('click', (event) => {
       const newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
 
-    todoNode.appendChild(deleteButtonNode);
-    markTodo.textContent = 'markTodo';
+    markTodo.classList.add('fa', 'fa-check-square-o', 'mark-button');
     markTodo.addEventListener('click', () => {
       const newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
-    }); 
-    
-    todoNode.appendChild(markTodo)
+    });
+
+    todoNode.appendChild(markTodo);
+    todoNode.appendChild(deleteButtonNode);
     // add classes for css
     return todoNode;
   };
@@ -47,7 +49,7 @@
         description: description.value,
         done: false
       }; 
-      const newState = todoFunctions.addTodo(state, todo)
+      const newState = todoFunctions.addTodo(state, todo);
       update(newState);
     });
   }
@@ -55,6 +57,7 @@
   // you should not need to change this function
   const update = (newState) => {
     state = newState;
+    console.log(state)
     renderState(state);
   };
 
