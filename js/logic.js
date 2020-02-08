@@ -30,11 +30,15 @@ const todoFunctions = {
     },
     
     markTodo: function(todos, idToMark) {
-      // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-      // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-      // this element will have its done value toggled
-      // hint: array.map
+        return todos.map(e => {
+          return {
+            id: e.id,
+            description: e.description,
+            done: (e.id === idToMark) ? true : e.done
+          }
+        })
     },
+    
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
       // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
