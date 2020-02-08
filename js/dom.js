@@ -1,12 +1,9 @@
-// part 2 linking it all together
-// The function here is called an iife,
-// it keeps everything inside hidden from the rest of our application
 (function() {
   // This is the dom node where we will keep our todo
   const container = document.getElementById('todo-container');
   const addTodoForm = document.getElementById('add-todo');
 
-  const state = [
+  let state = [
     { id: -3, description: 'first todo' },
     { id: -2, description: 'second todo' },
     { id: -1, description: 'third todo' },
@@ -42,14 +39,15 @@
   // bind create todo form
   if (addTodoForm) {
     addTodoForm.addEventListener('submit', (event) => {
-      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-      // what does event.preventDefault do?
-      // what is inside event.target?
-
-      const description = '?'; // event.target ....
-
-      // hint: todoFunctions.addTodo
-      const newState = []; // ?? change this!
+      const description = document.querySelector('.input-description');
+      event.preventDefault();
+      
+      const todo = {
+        id: todoFunctions.generateId(),
+        description: description.value,
+        done: false
+      }; 
+      const newState = todoFunctions.addTodo(state, todo)
       update(newState);
     });
   }
