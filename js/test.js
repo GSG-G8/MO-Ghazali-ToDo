@@ -30,4 +30,13 @@ test('delete todo function', function(t) {
   t.end();
 });
 
+test('mark todo function', function(t) {
+  const beforArray = [{id: 0, description: 'make tea', done: false},{id: 1, description: 'make coffie', done: false}];
+  const runFun = logic.todoFunctions.markTodo(beforArray, 0);
+  t.equal(beforArray.length, runFun.length);
+  t.equal(typeof(beforArray),typeof(runFun));
+  t.equal(beforArray[0].done === false ,runFun[0].done === true);
+  t.equal(beforArray[1].done === false ,runFun[1].done === false);
+  t.end();
+});
 
