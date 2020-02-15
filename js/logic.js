@@ -24,7 +24,7 @@ const todoFunctions = {
       return {
         id: e.id,
         description: e.description,
-        done: e.id === idToMark ? true : e.done
+        done: e.id === idToMark ? !e.done : e.done
       };
     });
   },
